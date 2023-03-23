@@ -1,0 +1,31 @@
+name: Release Package
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to register or component to bump
+        required: true
+permissions:
+  actions: read
+  checks: read
+  contents: write
+  deployments: read
+  issues: read
+  discussions: read
+  packages: read
+  pages: read
+  pull-requests: read
+  repository-projects: read
+  security-events: read
+  statuses: read
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: julia-actions/RegisterAction@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: JuliaRegistries/TagBot@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh: ${{ secrets.DOCUMENTER_KEY }}
