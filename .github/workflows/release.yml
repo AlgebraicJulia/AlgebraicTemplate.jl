@@ -19,13 +19,6 @@ permissions:
   security-events: read
   statuses: read
 jobs:
-  register:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: julia-actions/RegisterAction@latest
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: JuliaRegistries/TagBot@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ssh: ${{ secrets.DOCUMENTER_KEY }}
+  release:
+    uses: AlgebraicJulia/.github/.github/workflows/julia_release.yml@main
+    secrets: inherit
