@@ -53,3 +53,13 @@ A template repository for making a new AlgebraicJulia package.
    git push
    ```
 10. Go back to your repository and wait until the tests have passed, you can check the status by going to the "Actions" tab in the repository
+
+### 📔 Set Up GitHub Pages (Public Repos Only)
+
+1. Follow the Usage steps above to set up a new template, make sure all initial GitHub Actions have passed
+2. Navigate to the repository settings and go to "Code and automation", "Pages"
+3. Make sure the "Source" dropdown is set to "Deploy from a branch"
+4. Set the "Branch" dropdown to "gh-pages", make sure the folder is set to "/ (root)", and click "Save"
+5. Go back to the main page of your repository and click the gear to the right of the "About" section in the right side column
+6. Under "Website" check the checkbox that says "Use your GitHub Pages website" and click "Save changes"
+7. You will now see a URL in the "About" section that will link to your package's documentation
