@@ -79,5 +79,5 @@ A template repository for making a new AlgebraicJulia package.
      - CI / Julia 1 - windows-latest - x64 - push
      - CI / Julia 1 - windows-latest - x86 - push
      - CI / Julia 1 - macOS-latest - x64 - push
-   - Check the "Restrict who can push to matching branches" and add `mehalter` to the list of people with push access (this is used for push access for the GitHub action to automatically update the `Project.toml` file from the GitHub Actions)
+   - Check the "Restrict who can push to matching branches" and add `algebraicjuliabot` to the list of people with push access
 6. Click "Save changes" to enable the branch protection
