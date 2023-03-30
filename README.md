@@ -13,7 +13,7 @@ A template repository for making a new AlgebraicJulia package.
 2. In the new page select "AlgebraicJulia" as the owner, give the repository a name such as "AlgebraicX.jl", and create a new repository from the template
 3. Set up Codecov credentials for code coverage (If you have trouble, reach out to an AlgebraicJulia organization owner to help with this)
 
-   1. Log into [Codecov](https://codecov.io) with your GitHub account (this requires that you are a member of the AlgebraicPetri organization)
+   1. Log into [Codecov](https://codecov.io) with your GitHub account (this requires that you are a member of the AlgebraicJulia organization)
    2. Navigate to the [AlgebraicJulia organization](https://app.codecov.io/gh/AlgebraicJulia)
    3. Select your new repository from the list (e.x. "AlgebraicX")
    4. Note down the `CODECOV_TOKEN` value (It may be in the "Settings" tab if it doesn't show up immediately)
