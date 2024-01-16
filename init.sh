@@ -31,6 +31,20 @@ then
   [[ "$0" = "BASH_SOURCE" ]] && exit 1 || return 1
 fi
 
+# get version
+unameOut="$(uname -s)"
+
+case "${unameOut}" in
+  Linux*)  
+    git grep -l $DEFAULT_REPO | xargs sed -i "s/${DEFAULT_REPO}/${REPO}/g";
+    git grep -l $DEFAULT_UUID | xargs sed -i "s/${DEFAULT_UUID}/${UUID}/g";;
+  Darwin*) 
+    git grep -l $DEFAULT_REPO | xargs sed -i '' -e "s/${DEFAULT_REPO}/${REPO}/g";
+    git grep -l $DEFAULT_UUID | xargs sed -i '' -e "s/${DEFAULT_UUID}/${UUID}/g";;
+  *)       
+    echo UNKNOWN:${unameOut};; 
+esac
+
 # rename 
 if [[ $REPO == *.jl ]]
 then
@@ -39,19 +53,7 @@ else
   mv src/$DEFAULT_REPO.jl src/$REPO.jl
 fi
 
-# get version
-unameOut="$(uname -s)"
 
-case "${unameOut}" in
-  Linux*)  
-    git grep -l $DEFAULT_REPO | xargs sed -i "s/${DEFAULT_REPO}/${REPO}/g";
-    git grep -l $DEFAULT_UUID | xargs sed -i "s/${DEFAULT_UUID}/${$UUID}/g";;
-  Darwin*) 
-    git grep -l $DEFAULT_REPO | xargs sed -i '' -e "s/${DEFAULT_REPO}/${REPO}/g";
-    git grep -l $DEFAULT_UUID | xargs sed -i '' -e "s/${DEFAULT_UUID}/${UUID}/g";;
-  *)       
-    echo UNKNOWN:${unameOut};; 
-esac
 
 # git commit -am "Initialized $REPO"
 # git push
