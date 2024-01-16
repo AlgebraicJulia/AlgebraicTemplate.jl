@@ -44,11 +44,11 @@ unameOut="$(uname -s)"
 
 case "${unameOut}" in
   Linux*)  
-    git grep -l $DEFAULT_REPO | xargs sed -i 's/{$DEFAULT_REPO}/{$REPO}/g';
-    git grep -l $DEFAULT_UUID | xargs sed -i 's/{$DEFAULT_UUID}/{$UUID}/g';;
+    git grep -l $DEFAULT_REPO | xargs sed -i "s/{$DEFAULT_REPO}/{$REPO}/g";
+    git grep -l $DEFAULT_UUID | xargs sed -i "s/{$DEFAULT_UUID}/{$UUID}/g";;
   Darwin*) 
-    git grep -l $DEFAULT_REPO | xargs sed -i '' -e 's/{$DEFAULT_REPO}/{$REPO}/g';
-    git grep -l $DEFAULT_UUID | xargs sed -i '' -e 's/{$DEFAULT_UUID}/{$UUID}/g';;
+    git grep -l $DEFAULT_REPO | xargs sed -i '' -e "s/{$DEFAULT_REPO}/{$REPO}/g";
+    git grep -l $DEFAULT_UUID | xargs sed -i '' -e "s/{$DEFAULT_UUID}/{$UUID}/g";;
   *)       
     echo UNKNOWN:${unameOut};; 
 esac
