@@ -15,7 +15,7 @@ UUID=${UUID,,}
 
 if [ ! $REPO ] || [ "$REPO" = 'Test' ] || [ ! $UUID ]; then
   echo ""
-  echo $usage$ >&2; exit 1
+  echo $usage >&2; exit 1
 fi
 
 read -p "By continuing, the following substitutions will be made:
