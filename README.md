@@ -30,6 +30,12 @@ A template repository for making a new AlgebraicJulia package.
 5. Inspect for yourself and run `init.sh` with the new repository name and (optional) UUID are parameters. This script will substitute all instances of `AlgebraicX` with your new repository name and the default UUID with a new one or, if available, the UUID provided.
 6. Go back to your repository and wait until the tests have passed, you can check the status by going to the "Actions" tab in the repository
 
+### Buildkite
+
+AlgebraicJulia uses [Buildkite](https://buildkite.com/) to submit resource-intensive processes such as building documentation and executing tests to the [HiPerGator](https://www.rc.ufl.edu/about/hipergator/) computing cluster.
+
+While this template comes with a preconfigured `.buildkite/pipeline.yml` file, this repository is not integrated with Buildkite by default. If you would like your repository to use Buildkite to run processes on HiPerGator, tag an issue with @AlgebraicJulia/SysAdmins. 
+
 ### 📔 Set Up GitHub Pages (Public Repos Only)
 
 1. Follow the Usage steps above to set up a new template, make sure all initial GitHub Actions have passed

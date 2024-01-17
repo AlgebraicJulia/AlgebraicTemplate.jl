@@ -24,7 +24,7 @@ read -p "By continuing, the following substitutions will be made:
 REPO: $DEFAULT_REPO => $REPO
 UUID: $DEFAULT_UUID => $UUID
 
-Are you sure? Press Y to continue or any other character to exit." -n 1 -r
+Are you sure? [y/N]" -n 1 -r -s
 echo
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]
@@ -56,7 +56,7 @@ else
   mv src/$DEFAULT_REPO.jl src/$REPO.jl
 fi
 
-read -p "Would you like this script to add, commit, and push the new changes?" -n 1 -r
+read -p "Would you like this script to add, commit, and push the new changes? [y/N]" -n 1 -r -s
 echo
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]
