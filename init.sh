@@ -3,10 +3,10 @@
 DEFAULT_REPO='AlgebraicTemplate'
 DEFAULT_UUID='b66562e1-fa90-4e8b-9505-c909188fab76' 
 
-usage='This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be "Test."\n
+usage="This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be 'Test.'
 
-Example:\n 
-./init.sh "${DEFAULT_REPO}" "${DEFAULT_UUID}"'
+Example:
+./init.sh ${DEFAULT_REPO} ${DEFAULT_UUID}'
 
 REPO=$1
 UUID=${2:-$(uuidgen)}
