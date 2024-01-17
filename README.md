@@ -27,32 +27,8 @@ A template repository for making a new AlgebraicJulia package.
    git clone https://github.com/AlgebraicJulia/AlgebraicX.jl.git
    cd AlgebraicX.jl
    ```
-5. Rename the file `src/AlgebraicTemplate.jl` to match the name of your new package (e.x. "AlgebraicX")
-   ```sh
-   mv src/AlgebraicTemplate.jl src/AlgebraicX.jl
-   ```
-6. Replace all instances of the word "AlgebraicTemplate" with your new package name (e.x. "AlgebraicX")
-   ```sh
-   # On linux
-   git grep -l 'AlgebraicTemplate' | xargs sed -i 's/AlgebraicTemplate/AlgebraicX/g'
-   # On Mac OS X
-   git grep -l 'AlgebraicTemplate' | xargs sed -i '' -e 's/AlgebraicTemplate/AlgebraicX/g'
-   ```
-7. Generate a new random version 4 UUID (you can get one here: https://www.uuidgenerator.net/version4)
-   - We will assume for this example that your new UUID is `<UUID>`
-8. Replace all instances of the template's UUID, "b66562e1-fa90-4e8b-9505-c909188fab76", with your new UUID (e.x. "<UUID>")
-   ```sh
-   # On linux
-   git grep -l 'b66562e1-fa90-4e8b-9505-c909188fab76' | xargs sed -i 's/b66562e1-fa90-4e8b-9505-c909188fab76/<UUID>/g'
-   # On Mac OS X
-   git grep -l 'b66562e1-fa90-4e8b-9505-c909188fab76' | xargs sed -i '' -e 's/b66562e1-fa90-4e8b-9505-c909188fab76/<UUID>/g'
-   ```
-9. Commit these new changes to your repository
-   ```sh
-   git commit -am "Set up skeleton for AlgebraicX.jl"
-   git push
-   ```
-10. Go back to your repository and wait until the tests have passed, you can check the status by going to the "Actions" tab in the repository
+5. Inspect for yourself and run `init.sh` with the new repository name and (optional) UUID are parameters. This script will substitute all instances of `AlgebraicX` with your new repository name and the default UUID with a new one or, if available, the UUID provided.
+6. Go back to your repository and wait until the tests have passed, you can check the status by going to the "Actions" tab in the repository
 
 ### 📔 Set Up GitHub Pages (Public Repos Only)
 
