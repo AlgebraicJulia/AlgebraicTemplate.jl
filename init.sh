@@ -23,13 +23,15 @@ read -p "By continuing, the following substitutions will be made:
 REPO: $DEFAULT_REPO => $REPO
 UUID: $DEFAULT_UUID => $UUID
 
-Are you sure?" -n 1 -r
+Are you sure? y/N" -n 1 -r
 echo
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then 
   [[ "$0" = "BASH_SOURCE" ]] && exit 1 || return 1
 fi
+
+echo "Doing the thing..."
 
 # get version
 unameOut="$(uname -s)"
