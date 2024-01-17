@@ -3,9 +3,8 @@
 DEFAULT_REPO='AlgebraicTemplate'
 DEFAULT_UUID='b66562e1-fa90-4e8b-9505-c909188fab76' 
 
-usage="This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be 'Test.'
-
-Example:
+usage="This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be 'Test.'\n
+Example:\n
 ./init.sh ${DEFAULT_REPO} ${DEFAULT_UUID}"
 
 REPO=$1
@@ -16,7 +15,8 @@ UUID=${UUID,,}
 
 if [ ! $REPO ] || [ "$REPO" = 'Test' ] || [ ! $UUID ]; then
   echo ""
-  echo $usage >&2; exit 1
+  printf "$usage" 
+  exit 1
 fi
 
 read -p "By continuing, the following substitutions will be made:
