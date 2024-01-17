@@ -56,7 +56,13 @@ else
   mv src/$DEFAULT_REPO.jl src/$REPO.jl
 fi
 
+read -p "Would you like this script to add, commit, and push the new changes?" -n 1 -r
+echo
 
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  exit 1
+fi
 
-# git commit -am "Initialized $REPO"
-# git push
+git commit -am "Initialized $REPO"
+git push
