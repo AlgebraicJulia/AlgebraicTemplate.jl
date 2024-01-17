@@ -13,7 +13,7 @@ UUID=${2:-$(uuidgen)}
 # set to lowercase
 UUID=${UUID,,}
 
-if [ ! $REPO ] || [ $REPO == 'Test'] || [ ! $UUID ]; then
+if [ ! $REPO ] || [ "$REPO" = 'Test' ] || [ ! $UUID ]; then
   echo ""
   echo $usage$ >&2; exit 1
 fi
