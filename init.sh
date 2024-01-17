@@ -23,12 +23,12 @@ read -p "By continuing, the following substitutions will be made:
 REPO: $DEFAULT_REPO => $REPO
 UUID: $DEFAULT_UUID => $UUID
 
-Are you sure? y/N" -n 1 -r
+Are you sure? Press Y to continue or any other character to exit." -n 1 -r
 echo
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then 
-  [[ "$0" = "BASH_SOURCE" ]] && exit 1 || return 1
+  exit 1
 fi
 
 echo "Doing the thing..."
