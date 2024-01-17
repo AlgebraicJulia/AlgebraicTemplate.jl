@@ -15,7 +15,7 @@ UUID=${UUID,,}
 
 if [ ! $REPO ] || [ "$REPO" = 'Test' ] || [ ! $UUID ]; then
   echo ""
-  printf "$usage" 
+  printf '<%s>' "$usage" 
   exit 1
 fi
 
