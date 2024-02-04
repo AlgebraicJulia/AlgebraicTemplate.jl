@@ -7,7 +7,7 @@ usage="This script is for initializing the template with the new repository name
 Example:\n
 ./init.sh ${DEFAULT_REPO} ${DEFAULT_UUID}"
 
-REPO={$1:-$(echo "${PWD##*/}")}
+REPO=${1:-"${PWD##*/}"}
 UUID=${2:-$(uuidgen)}
 
 # set to lowercase
