@@ -3,11 +3,12 @@
 DEFAULT_REPO='AlgebraicTemplate'
 DEFAULT_UUID='b66562e1-fa90-4e8b-9505-c909188fab76' 
 
-usage="This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be 'Test.'\n
+usage="This script is for initializing the template with the new repository name and UUID. Please provide the new repository name and UUID in that order. The repository name cannot be 'Test'.\n
 Example:\n
 ./init.sh ${DEFAULT_REPO} ${DEFAULT_UUID}"
 
 REPO=${1:-"${PWD##*/}"}
+REPO=${REPO%%.jl*}
 UUID=${2:-$(uuidgen)}
 
 # set to lowercase
@@ -16,6 +17,11 @@ UUID=${UUID,,}
 if [ ! $REPO ] || [ "$REPO" = 'Test' ] || [ ! $UUID ]; then
   echo ""
   printf "$usage" 
+  exit 1
+fi
+
+if [[ ! "$REPO" =~ ^[a-zA-Z]+$ ]]; then
+  echo "The string '$REPO' contains non-alphabetic characters."
   exit 1
 fi
 
@@ -49,12 +55,7 @@ case "${unameOut}" in
 esac
 
 # rename 
-if [[ $REPO == *.jl ]]
-then
-  mv src/$DEFAULT_REPO.jl src/$REPO
-else
-  mv src/$DEFAULT_REPO.jl src/$REPO.jl
-fi
+mv src/$DEFAULT_REPO.jl src/$REPO.jl
 
 read -p "Would you like this script to add, commit, and push the new changes? [y/N]" -n 1 -r -s
 echo
