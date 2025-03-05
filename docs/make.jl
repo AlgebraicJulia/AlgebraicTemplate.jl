@@ -1,4 +1,5 @@
 using Documenter
+using DocumenterCitations
 using Literate
 
 const literate_dir = joinpath(@__DIR__, "literate")
@@ -32,6 +33,10 @@ if !no_literate
   end
 end
 
+bib = CitationBibliography(
+    joinpath(@__DIR__, "src", "documenter.bib");
+    style=:numeric)
+
 @info "Building Documenter.jl docs"
 makedocs(
   modules=[AlgebraicTemplate],
@@ -42,15 +47,14 @@ makedocs(
   pages=Any[
     "AlgebraicTemplate.jl"=>"index.md",
     "Examples"=>Any[
-      "generated/literate_example.md",
-    ],
-    "Library Reference"=>"api.md",
-  ]
-)
+      "generated/literate_example.md",],
+    "Library Reference"=>"api.md",],
+  plugins=[bib])
+
 
 @info "Deploying docs"
 deploydocs(
   target="build",
   repo="github.com/AlgebraicJulia/AlgebraicTemplate.jl.git",
-  branch="gh-pages"
-)
+  branch="gh-pages")
+
